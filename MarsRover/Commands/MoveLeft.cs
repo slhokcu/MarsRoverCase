@@ -1,0 +1,19 @@
+using MarsRover.Enums;
+
+namespace MarsRover.Commands
+{
+    public class MoveLeft : ICommand
+    {
+        private Rover rover;
+
+        public MoveLeft(Rover rover)
+        {
+            this.rover = rover;
+        }
+
+        public void Execute()
+        {
+            rover.Direction = (Directions)(((int)rover.Direction - 1 + 4) % 4);
+        }
+    }
+}
